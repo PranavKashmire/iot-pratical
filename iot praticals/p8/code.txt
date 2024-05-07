@@ -1,0 +1,34 @@
+const int redPin = 9;
+const int greenPin = 10;
+const int yellowPin = 8;
+
+void setup() {
+  Serial.begin(9600); // opens serial port, sets data rate to 9600 bps
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(yellowPin, OUTPUT);
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    char input = Serial.read();
+    Serial.print("Received: ");
+    Serial.println(input);
+    
+    if (input == 'r') {
+      digitalWrite(redPin, HIGH);
+      digitalWrite(greenPin, LOW);
+      digitalWrite(yellowPin, LOW);
+    } 
+    else if (input == 'g') {
+      digitalWrite(redPin, LOW);
+      digitalWrite(greenPin, HIGH);
+      digitalWrite(yellowPin, LOW);
+    } 
+    else if (input == 'y') {
+      digitalWrite(redPin, LOW);
+      digitalWrite(greenPin, LOW);
+      digitalWrite(yellowPin, HIGH);
+    }
+  }
+}

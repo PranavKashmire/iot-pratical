@@ -1,0 +1,16 @@
+int motorPin=10;
+int potentiometerPin=A0;
+void setup() {
+pinMode(motorPin, OUTPUT); 
+}
+void loop() {
+  int potValue = analogRead(potentiometerPin);
+  
+  // Map the potentiometer value to a range of motor speeds (0-255)
+  int motorSpeed = map(potValue, 0, 1023, 0, 255);
+  
+  // Set the motor speed
+  analogWrite(motorPin, motorSpeed);
+  
+  delay(10);
+}

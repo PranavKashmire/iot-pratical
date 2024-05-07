@@ -1,0 +1,64 @@
+
+ A.)
+
+void setup()
+{
+  pinMode(13 , OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(13 , HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(13, LOW);
+  delay(1000); // Wait for 1000 millisecond(s)
+}
+
+  
+
+
+steps :
+1. take Arduino uno r3 , resistor and 1 led
+2. connect cathode of led to ground and anode(+) to resistor then pin 13
+3. paste code
+
+
+
+
+
+
+B.)
+
+int ledPins[] = {0,1, 2,3,4};
+void setup() {
+// initialize digital pin LED_BUILTIN as an output.
+pinMode(ledPins[0], OUTPUT);
+pinMode(ledPins[1], OUTPUT);
+pinMode(ledPins[2], OUTPUT);
+pinMode(ledPins[3], OUTPUT);
+pinMode(ledPins[4], OUTPUT);
+}
+// the loop function runs over and over again forever
+void loop() {
+digitalWrite(ledPins[0], HIGH); // turn ON the LED on in ascending
+delay(1000);
+digitalWrite(ledPins[1], HIGH);
+delay(1000);
+digitalWrite(ledPins[2], HIGH);
+delay(1000);
+digitalWrite(ledPins[3], HIGH);
+delay(1000);
+digitalWrite(ledPins[4], HIGH);
+delay(1000);
+digitalWrite(ledPins[4], LOW);// turn on the LED in descending
+delay(1000);
+digitalWrite(ledPins[3], LOW);
+delay(1000);
+digitalWrite(ledPins[2], LOW);
+delay(1000);
+digitalWrite(ledPins[1], LOW);
+delay(1000);
+digitalWrite(ledPins[0], LOW);
+delay(1000);// wait for one second
+}
+

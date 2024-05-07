@@ -1,0 +1,30 @@
+const int greenLedPin = 2;
+const int yellowLedPin = 3;
+const int redLedPin = 4;
+// Counter variable
+int counter = 50;
+void setup() {
+// Set LED pins as output
+pinMode(greenLedPin, OUTPUT);
+pinMode(yellowLedPin, OUTPUT);
+pinMode(redLedPin, OUTPUT);
+}
+void loop() {
+// Increment the counter
+counter++;
+// Check counter value and control LEDs accordingly
+  if (counter < 100) {
+digitalWrite(greenLedPin, HIGH); // Turn on green LED
+digitalWrite(yellowLedPin, LOW); // Turn off yellow LED
+digitalWrite(redLedPin, LOW); // Turn off red LED
+} else if (counter >= 101 && counter <= 200) {
+digitalWrite(greenLedPin, LOW); // Turn off green LED
+digitalWrite(yellowLedPin, HIGH); // Turn on yellow LED
+digitalWrite(redLedPin, LOW); // Turn off red LED
+} else if (counter > 200) {
+digitalWrite(greenLedPin, LOW); // Turn off green LED
+digitalWrite(yellowLedPin, LOW); // Turn off yellow LED
+digitalWrite(redLedPin, HIGH); // Turn on red LED
+}
+delay(100); // Delay for 1 second
+}

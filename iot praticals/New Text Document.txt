@@ -1,0 +1,501 @@
+1. aim : Study of Raspberry-Pi/ Beagle board/ Arduino and other microcontroller ( History & Elevation)
+
+
+2. aim : Study of different operating systems for Raspberry-Pi/Beagle board/Arduino. Understanding the process of OS installation.
+
+
+3.aim : Aim: Study of different GATES (AND, OR, XOR), Sensors and basic binary operations.
+Outcome: To study different GATES (AND, OR, XOR), Sensors
+
+
+4. aim :Write a program using Arduino to control LED (One or more ON/OFF). Or Blinking
+        (ie. A.) blinking single led
+               
+              B.) blinking multiple led(6))
+
+
+ A.)
+
+void setup()
+{
+  pinMode(13 , OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(13 , HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(13, LOW);
+  delay(1000); // Wait for 1000 millisecond(s)
+}
+
+  
+
+
+steps :
+1. take Arduino uno r3 , resistor and 1 led
+2. connect cathode of led to ground and anode(+) to resistor then pin 13
+3. paste code
+
+
+
+
+
+
+B.)
+
+int ledPins[] = {0,1, 2,3,4};
+void setup() {
+// initialize digital pin LED_BUILTIN as an output.
+pinMode(ledPins[0], OUTPUT);
+pinMode(ledPins[1], OUTPUT);
+pinMode(ledPins[2], OUTPUT);
+pinMode(ledPins[3], OUTPUT);
+pinMode(ledPins[4], OUTPUT);
+}
+// the loop function runs over and over again forever
+void loop() {
+digitalWrite(ledPins[0], HIGH); // turn ON the LED on in ascending
+delay(1000);
+digitalWrite(ledPins[1], HIGH);
+delay(1000);
+digitalWrite(ledPins[2], HIGH);
+delay(1000);
+digitalWrite(ledPins[3], HIGH);
+delay(1000);
+digitalWrite(ledPins[4], HIGH);
+delay(1000);
+digitalWrite(ledPins[4], LOW);// turn on the LED in descending
+delay(1000);
+digitalWrite(ledPins[3], LOW);
+delay(1000);
+digitalWrite(ledPins[2], LOW);
+delay(1000);
+digitalWrite(ledPins[1], LOW);
+delay(1000);
+digitalWrite(ledPins[0], LOW);
+delay(1000);// wait for one second
+}
+
+
+
+steps :
+1. take Arduino uno r3, 6 resistors and 6 leds
+2.connect anode to resistors and then pins 0,1 ,2 , 3, 4, 5  and then connect cathode ground 
+4. paste code
+
+
+
+
+5.aim : Create a program that illuminates the green LED if the counter is less than 100,
+illuminates the yellow LED if the counter is between 101 and 200 and illuminates the red LED if
+the counter is greater than 200 USING ARDUINO UNO AND PROTEUS
+
+
+code:
+const int greenLedPin = 2;
+const int yellowLedPin = 3;
+const int redLedPin = 4;
+// Counter variable
+int counter = 50;
+void setup() {
+// Set LED pins as output
+pinMode(greenLedPin, OUTPUT);
+pinMode(yellowLedPin, OUTPUT);
+pinMode(redLedPin, OUTPUT);
+}
+void loop() {
+// Increment the counter
+counter++;
+// Check counter value and control LEDs accordingly
+  if (counter < 100) {
+digitalWrite(greenLedPin, HIGH); // Turn on green LED
+digitalWrite(yellowLedPin, LOW); // Turn off yellow LED
+digitalWrite(redLedPin, LOW); // Turn off red LED
+} else if (counter >= 101 && counter <= 200) {
+digitalWrite(greenLedPin, LOW); // Turn off green LED
+digitalWrite(yellowLedPin, HIGH); // Turn on yellow LED
+digitalWrite(redLedPin, LOW); // Turn off red LED
+} else if (counter > 200) {
+digitalWrite(greenLedPin, LOW); // Turn off green LED
+digitalWrite(yellowLedPin, LOW); // Turn off yellow LED
+digitalWrite(redLedPin, HIGH); // Turn on red LED
+}
+delay(100); // Delay for 1 second
+}
+
+
+
+
+
+
+steps:
+1. take the Arduino , 3 resistors and then 3 leds rgb
+2. connect green,yellow,red leds anode to their resistors and then to 3, 4,5 pins of Arduino
+3.connect their cathode(-) to their ground
+4.paste the code
+
+
+
+
+
+6. AIM : Write a program that asks the user for a number and outputs the number squared that is entered
+
+
+code 1 :
+
+# Declaring the number.
+n = 4
+# Finding square by using pow method
+ # This will yield n power 2 i.e. square of n
+square = pow(n, 2)
+# Printing square
+print(square)
+
+code 2 :
+
+number = int(input('Enter a number to get its square '))
+# Define a function to calculate Square
+def calculateSquare(num):
+   return number*number
+# print the output
+print("Square of ",number, "is ", calculateSquare(number))
+
+
+
+8.AIM : Take input as a character to illuminate the respective color LED.
+(i.e rgb led using breadboard)
+Problem statement:Create a program so that when the user enters ‘b’ the green light blinks, ‘g’
+the green light is illuminated’ the yellow light is illuminated and ‘r’ the red light is illuminated.
+
+code :
+
+const int redPin = 9;
+const int greenPin = 10;
+const int yellowPin = 8;
+
+void setup() {
+  Serial.begin(9600); // opens serial port, sets data rate to 9600 bps
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(yellowPin, OUTPUT);
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    char input = Serial.read();
+    Serial.print("Received: ");
+    Serial.println(input);
+    
+    if (input == 'r') {
+      digitalWrite(redPin, HIGH);
+      digitalWrite(greenPin, LOW);
+      digitalWrite(yellowPin, LOW);
+    } 
+    else if (input == 'g') {
+      digitalWrite(redPin, LOW);
+      digitalWrite(greenPin, HIGH);
+      digitalWrite(yellowPin, LOW);
+    } 
+    else if (input == 'y') {
+      digitalWrite(redPin, LOW);
+      digitalWrite(greenPin, LOW);
+      digitalWrite(yellowPin, HIGH);
+    }
+  }
+}
+
+
+steps :
+1. take the Arduino , rbg leds and breadboard
+2.connect the y to (8,9) port and red to (13, 14) and g to (18,19) to i line of breadboard
+3.connect the f line(- cathode)  to  -ve line of breadboard
+4.connect 2nd -ve point of breadboard to ground of the Arduino
+5.connect anode(+) of y to 8 , r to 9 , g to 10 of Arduino
+6.paste program
+
+
+
+
+9. aim : Piezo Buzzer Melody Player
+
+
+code :
+int buzzer = 8;
+void setup() {
+// Defines the Buzzer pin as output
+pinMode(buzzer, OUTPUT);
+}
+
+void loop() {
+// Melody notes
+int melody[] = {261, 293, 329, 349, 201, 283, 502, 149};
+
+// Note durations
+int noteDuration = 200; // milliseconds
+
+for (int i = 0; i < 8; i++) {
+// Plays the melody note
+tone(buzzer, melody[i]);
+
+// Delay between notes
+delay(noteDuration);
+
+// Turns the buzzer off
+noTone(buzzer);
+
+// Delay between notes
+delay(noteDuration);
+}
+}
+
+
+
+steps:
+1. take the Arduino uno, piezo element , and jumper wire 
+2.connect +ve of piezo to 8 of Arduino and -ve to ground (down)
+3.paste the code
+
+
+
+
+10. aim : Temperature Sensor with Arduino in Tinkercad
+
+
+code :
+int baselineTemp = 0;
+int celsius = 0;
+int fahrenheit = 0;
+void setup() {
+pinMode(A0, INPUT);
+Serial.begin(9600);
+pinMode(2, OUTPUT);
+pinMode(3, OUTPUT);
+pinMode(4, OUTPUT);
+}
+void loop() {
+// set threshold temperature to activate LEDs
+baselineTemp = 10;
+// measure temperature in Celsius
+celsius = map(((analogRead(A0) - 20) * 3.04), 0, 1023, -40, 125);
+// convert to Fahrenheit
+fahrenheit = ((celsius * 9) / 5 + 32);
+Serial.print(celsius);
+Serial.print(" C, ");
+Serial.print(fahrenheit);
+Serial.println(" F");
+if (celsius < baselineTemp) {
+digitalWrite(2, LOW);
+digitalWrite(3, LOW);
+digitalWrite(4, LOW);
+}
+if (celsius >= baselineTemp && celsius < baselineTemp + 10) {
+digitalWrite(2, HIGH);
+digitalWrite(3, LOW);
+digitalWrite(4, LOW);
+}
+if (celsius >= baselineTemp + 10 && celsius < baselineTemp + 20) {
+digitalWrite(2, HIGH);
+digitalWrite(3, HIGH);
+digitalWrite(4, LOW);
+}
+if (celsius >= baselineTemp + 20 && celsius < baselineTemp + 30) {
+
+digitalWrite(2, HIGH);
+digitalWrite(3, HIGH);
+digitalWrite(4, HIGH);
+}
+if (celsius >= baselineTemp + 30) {
+digitalWrite(2, HIGH);
+digitalWrite(3, HIGH);
+digitalWrite(4, HIGH);
+}
+delay(1000); // Wait for 1000 milliseconds
+}
+
+
+steps:
+1. take : Arduino Uno microcontroller, TMP36 temperature sensor,Three LEDs (Red, Yellow, Green),Three 220-ohm resistors ,Breadboard
+2.connect temp sensor to e(4,6) and r[4,5,6] . then r to (19,20) , then b to (23, 24) , then y to (27,28)
+3.now connect the extreme ends of tmp(coloum a ) , right wala to plus and left wala to minus of breadboard and middle end(from tmp) to 5v of Arduino
+5.now connect + line terminal (right extreme of tmp) to "AO" of the Arduino
+6.now connect the minus point at 15 to ground (non power side) 
+7. now take 3 resistor and then connect from b in line of cathode of leds to minus of bread board 
+8. now connect a in line of anode of leds r  b y to 4 , 3 ,2 of Arduino
+8.paste the code 
+
+
+
+11. Title : Using Arduino Ultrasonic Transducer HC-SR04 on Tinkercad
+
+Objective:
+To understand the principles of ultrasonic distance measurement and to interface the HC-SR04
+ultrasonic sensor with an Arduino Uno on Tinkercad.
+
+code : 
+#include <LiquidCrystal.h> // includes the LiquidCrystal Library
+LiquidCrystal lcd(1, 2, 4, 5, 6, 7); // Creates an LCD object. Parameters: (rs, enable, d4, d5, d6, d7)
+const int trigPin = 9;
+const int echoPin = 10;
+long duration;
+int distanceCm, distanceInch;
+void setup() {
+lcd.begin(16,2); // Initializes the interface to the LCD screen, and specifies the dimensions (width
+and height) of the display
+pinMode(trigPin, OUTPUT);
+pinMode(echoPin, INPUT);
+}
+void loop() {
+digitalWrite(trigPin, LOW);
+delayMicroseconds(2);
+digitalWrite(trigPin, HIGH);
+delayMicroseconds(10);
+digitalWrite(trigPin, LOW);
+duration = pulseIn(echoPin, HIGH);
+distanceCm= duration*0.034/2;
+distanceInch = duration*0.0133/2;
+lcd.setCursor(0,0); // Sets the location at which subsequent text written to the LCD will be
+displayed
+lcd.print("Distance: "); // Prints string "Distance" on the LCD
+lcd.print(distanceCm); // Prints the distance value from the sensor
+lcd.print(" cm");
+delay(10);
+lcd.setCursor(0,1);
+lcd.print("Distance: ");
+lcd.print(distanceInch);
+lcd.print(" inch");
+delay(10);
+}
+
+
+steps:
+1.take the Arduino Uno board ,HC-SR04 Ultrasonic Transducer
+
+
+
+
+12.Title: Using PIR Sensor with Arduino on Tinkercad
+
+
+code :
+
+
+int pirsensor = 0;
+void setup()
+{
+pinMode(2, INPUT);
+pinMode(13, OUTPUT);
+Serial.begin(9600);
+}
+void loop()
+{
+pirsensor = digitalRead(2);
+if (pirsensor == 1) {
+digitalWrite(13, HIGH);
+Serial.println("Motion detected , presence of human or animals");
+} else {
+digitalWrite(13, LOW);
+Serial.println("Motion not detected");
+}
+delay(1000); // Wait for 1000 millisecond(s)
+}
+
+
+steps:
+1. take the Arduino Uno board(usb upper side) , PIR (Passive Infrared) sensor module, resistor , led
+2. place the led and resistor at upper part of Arduino
+3.connect catode of led to ground of upper side and anode to 13 of Arduino next to ground]
+4.connect 2 of Arduino to upper extreme port of PIR 
+5. now come to downward side of board (power side)
+5.connect upper ground to down extreme of PIR
+6.connect middle terminal of PIR to 5v next to ground
+7.paste code
+8. not extecuted
+
+
+
+
+13.Title : Switch and LED Interfacing with Arduino on Tinkercad
+Objective:
+To understand the basics of digital input and output interfacing using a switch and an LED with
+an Arduino Uno on Tinkercad.
+
+
+
+code:
+const int switchPin = 2; // Switch connected to digital pin 2
+const int ledPin = 13; // LED connected to digital pin 13
+void setup() {
+pinMode(switchPin, INPUT); // Set switch pin as input
+pinMode(ledPin, OUTPUT); // Set LED pin as output
+}
+void loop() {
+int switchState = digitalRead(switchPin); // Read switch state
+
+if (switchState == HIGH) { // If switch is pressed
+digitalWrite(ledPin, HIGH); // Turn on LED
+} else {
+digitalWrite(ledPin, LOW); // Turn off LED
+}
+}
+
+
+
+steps:
+1. take Arduino Uno
+• Breadboard
+• LED
+• 220 ohm resistor
+• Momentary push-button switch
+
+2. place Arduino upper side USB position
+3.take led and place upper side of board and connect the led cathode to ground and then anode to resistor to 13 
+4.conect 2 of Arduino (upperside) to terminal 1b of push button
+5.connect 1a to resistor then ground and 2a to 5v
+6.paste the code
+
+
+
+
+
+14. Title : Arduino Circuit with LED, Push Button, and Potentiometer
+Objective:
+The objective of this lab is to understand how to interface an LED, a push button, and a
+potentiometer with an Arduino Uno. Participants will learn how to read analog input from the
+potentiometer, detect digital input from the push button, and control the illumination of the LED
+based on the input received.
+
+
+steps :
+1. take • Arduino Uno board
+• Breadboard
+• LED (Light Emitting Diode)
+• 220 ohm resistor
+• Momentary push button switch
+• Potentiometer (variable resistor)
+• Jumper wires
+
+not performed
+
+15.Title : RGB LED Color Mixing with Arduino on Tinkercad
+
+Objective:
+
+The objective of this lab is to understand how to display different colors using an RGB (Red-Green-
+Blue) LED by mixing red, green, and blue light. Participants will learn how to control the intensity
+of each color component to create a variety of colors.
+
+not performed
+
+16.
+
+
+
+
+
+
+
+
+
+         
+         
